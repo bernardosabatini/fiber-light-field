@@ -20,6 +20,9 @@ function [ vals ] = lfExtractVolume(dataMatrix, xyz,  dZ)
 	nY=(maxY-minY)/dY+1;
 
 	zVal=-50:dZ:80;
+	if zVal(end)==80
+		zVal=zVal(1:end-1);
+	end
 	nZ=length(zVal);
 	minZ=-50;
 	
@@ -33,9 +36,9 @@ function [ vals ] = lfExtractVolume(dataMatrix, xyz,  dZ)
 			disp(num2str(counter))
 		end
 		
-		if ~isnan(xInd) & ~isnan(yInd)
+		if ~isnan(xInd) && ~isnan(yInd)
 			if isnan(vals(xInd, yInd, 1))
-				for zInd=1:nZ
+				for zInd=1:nZ-1
 					zc=zVal(zInd);
 					z0=lfZtoPt(zc);
 					z1=lfZtoPt(zc+dZ-.0001);
