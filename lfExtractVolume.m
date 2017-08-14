@@ -49,6 +49,10 @@ function [ vals ] = lfExtractVolume(dataMatrix, xyz,  dZ)
 		end
 	end
 	
-
 end
+
+
+%%
+% for counter=1:20;im=image(squeeze(LF2_GF(:, :, counter))'); set(im, 'CDataMapping', 'scaled'); set(gca, 'CLim', [0.005 .03]); set(gca, 'PlotBoxAspectRatio', [1 200/800 1]); pause(0.1); drawnow; end
+
 
